@@ -4,9 +4,21 @@ import Navbar from "./components/Navbar"
 import TaskBox from "./components/TaskBox";
 
 const App=()=>{
-const[tasks,setTasks]=useState([])
-const[inputValue,setInputValue]=useState("")
-const[show,setShow]=useState(null)
+const[tasks,setTasks]=useState([]);
+const[inputValue,setInputValue]=useState("");
+const[deleted,setDeleted]=useState(inputValue);
+
+const handleEdit=()=>{
+  console.log("edit")
+}
+
+const handleDelete=(value)=>{
+  if(tasks.length > 0){
+ 
+   console.log(pops)
+  }
+  console.log("deleted")
+}
 
 const handleInput=(e)=>{
   setInputValue(e.target.value)
@@ -25,7 +37,7 @@ const handleClick=()=>{
     <div className="px-2 mx-auto py-4 max-w-[500px] max-h-[300px] bg-yellow-200">
     <Navbar />
     <InputBox value={inputValue} onChange={handleInput} onClick={handleClick}  />
-    <TaskBox  />
+    <TaskBox  tasks={tasks} handleDelete={handleDelete} handleEdit={handleEdit} setTasks={setTasks}  />
     
     </div>
   )
